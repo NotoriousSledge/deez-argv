@@ -1,0 +1,41 @@
+{
+  "name": "deez-argv",
+  "version": "1.0.0",
+  "description": "A package for deserializing json paths in forms into a nested object",
+  "main": "src/dist/commonjs/index.js",
+  "module": "src/dist/esm/index.js",
+  "scripts": {
+    "test": "node --test --trace-warnings",
+    "format": "prettier --write . --cache",
+    "build": "npm run build:esm & npm run build:cjs",
+    "build:esm": "esbuild src/index.js --bundle --format=esm --platform=neutral --outdir=dist/esm",
+    "build:cjs": "esbuild src/index.js --bundle --format=cjs --platform=neutral --outdir=dist/commonjs",
+    "prepublishOnly": "node scripts/generate_dts_bundle.js"
+  },
+  "types": "./types/index.d.ts",
+  "files": [
+    "dist",
+    "types"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/exsjabe/deez-argv.git"
+  },
+  "type": "module",
+  "author": "exsjabe",
+  "license": "MIT",
+  "devDependencies": {
+    "@types/node": "^20.10.0",
+    "dts-buddy": "^0.4.0",
+    "esbuild": "^0.19.8",
+    "prettier": "^3.1.0",
+    "typescript": "5.2"
+  },
+  "exports": {
+    ".": {
+      "types": "./types/index.d.ts",
+      "require": "./src/dist/commonjs/index.js",
+      "import": "./src/dist/esm/index.js"
+    }
+  }
+}
