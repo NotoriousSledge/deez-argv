@@ -41,36 +41,13 @@ jobs:
   codestyle:
     runs-on: ubuntu-latest
     steps:
-      - id: setup
-        run: |
-          if ! [[ -z "${{ secrets.WORKFLOW_TOKEN }}" ]]; then
-            echo "has_token=true" >> "$GITHUB_OUTPUT"
-          else
-            echo "has_token=false" >> "$GITHUB_OUTPUT"
-          fi
-      - id: has_token
-        run: echo "has_token ${{ steps.setup.outputs.has_token }}"
       - uses: actions/checkout@v4
-        if: steps.setup.outputs.has_token == 'true'
-        with:
-          token: ${{ secrets.WORKFLOW_TOKEN }}
-          ref: ${{ github.head_ref }}
-      - uses: actions/checkout@v4
-        if: steps.setup.outputs.has_token == 'false'
-        with:
-          ref: ${{ github.head_ref }}
       - name: Use Node.js 20
         uses: actions/setup-node@v3
         with:
           node-version: 20.7
           cache: 'npm'
-      - run: npx prettier . --write
-      - name: Commit changes
-        uses: stefanzweifel/git-auto-commit-action@v4
-        if: steps.setup.outputs.has_token == 'true'
-        with:
-          commit_message: Apply formatting changes
-          branch: ${{ github.head_ref }}
+      - run: npx prettier . --check
 
   buildtypes:
     runs-on: ubuntu-latest
