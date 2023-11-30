@@ -2,11 +2,21 @@
 
 ## A left-pad inspired package for deserializing an argument list to a Record
 
-Install
+Install via the plethora of available package managers!!!!
 
 ```bash
-    $ npm i deez-argv
+$ npm i deez-argv
 ```
+```bash
+$ yarn add deez-argv
+```
+```bash
+$ pnpm i deez-argv
+```
+```bash
+$ bun i deez-argv
+```
+
 
 By default `process.argv` is passed if no argument is given.
 
@@ -18,16 +28,18 @@ const args = deserializeArgumentList();
 You can also pass a custom argument list with a custom starting point
 
 ```ts
-const args = deserializeArgumentList(['--foo', 'bar', '-baz=qar']);
+const args = deserializeArgumentList(['--foo', 'bar', '-baz=qar'], 0);
 // ^? Record<string, string>
 ```
+
+The starting point otherwise defaults to `2` for compatibility with `process.argv`.
 
 You can then pass that object to whatever validation you desire.
 
 ```ts
 const argSchema z.object({foo: z.string(), baz: z.string()});
 const args = argSchema.parse(deserializeArgumentList());
-// ^ {foo:string, baz:string}
+// ^? {foo:string, baz:string}
 ```
 
 `-` and `--` denotes an argument that should be parsed.
