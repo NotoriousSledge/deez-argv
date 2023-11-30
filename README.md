@@ -7,16 +7,18 @@ Install via the plethora of available package managers!!!!
 ```bash
 $ npm i deez-argv
 ```
+
 ```bash
 $ yarn add deez-argv
 ```
+
 ```bash
 $ pnpm i deez-argv
 ```
+
 ```bash
 $ bun i deez-argv
 ```
-
 
 By default `process.argv` is passed if no argument is given.
 
