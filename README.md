@@ -39,7 +39,7 @@ The starting point otherwise defaults to `2` for compatibility with `process.arg
 You can then pass that object to whatever validation you desire.
 
 ```ts
-const argSchema z.object({foo: z.string(), baz: z.string()});
+const argSchema = z.object({foo: z.string(), baz: z.string()});
 const args = argSchema.parse(deserializeArgumentList());
 // ^? {foo:string, baz:string}
 ```
