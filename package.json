@@ -1,6 +1,6 @@
 {
   "name": "deez-argv",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "A package for deserializing argument lists",
   "main": "src/dist/commonjs/index.js",
   "module": "src/dist/esm/index.js",
@@ -10,7 +10,8 @@
     "build": "npm run build:esm & npm run build:cjs",
     "build:esm": "esbuild src/index.js --bundle --format=esm --platform=neutral --outdir=dist/esm",
     "build:cjs": "esbuild src/index.js --bundle --format=cjs --platform=neutral --outdir=dist/commonjs",
-    "prepublishOnly": "node scripts/generate_dts_bundle.js"
+    "build:types": "node scripts/generate_dts_bundle.js",
+    "prepublishOnly": "npm run build && npm run build:types"
   },
   "types": "./types/index.d.ts",
   "files": [

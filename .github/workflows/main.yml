@@ -38,7 +38,7 @@ jobs:
           cache: 'npm'
       - run: npm test
 
-  codestyle:
+  code-style:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -49,7 +49,7 @@ jobs:
           cache: 'npm'
       - run: npx prettier . --check
 
-  buildtypes:
+  build-types:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -59,4 +59,4 @@ jobs:
           node-version: 20.7
           cache: 'npm'
       - run: npm ci
-      - run: npm run prepublishOnly
+      - run: npm run build:types
