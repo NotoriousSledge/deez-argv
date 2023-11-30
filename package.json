@@ -1,6 +1,6 @@
 {
   "name": "deez-argv",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "A package for deserializing json paths in forms into a nested object",
   "main": "src/dist/commonjs/index.js",
   "module": "src/dist/esm/index.js",

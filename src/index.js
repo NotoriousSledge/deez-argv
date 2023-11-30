@@ -23,9 +23,11 @@ export const deserializeArgumentList = /* # __PURE__ */ (
     indexOf = name.indexOf('=');
     if (indexOf > -1) {
       res[name.slice(0, indexOf)] = name.slice(indexOf + 1);
-    } else if (name && i + 1 < args.length) {
+    } else if (name && i + 1 < args.length && !args[i + 1].startsWith('-')) {
       i++;
       res[name] = args[i];
+    } else {
+      res[name] = 'true';
     }
   }
 

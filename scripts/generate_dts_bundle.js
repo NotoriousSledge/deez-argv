@@ -1,6 +1,6 @@
 // @ts-check
 // scripts/generate-dts-bundle.js
-import { createBundle } from 'dts-buddy';
+import {createBundle} from 'dts-buddy';
 
 await createBundle({
   project: './tsconfig.json',
