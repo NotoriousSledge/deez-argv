@@ -28,9 +28,11 @@ const args = deserializeArgumentList();
 You can also pass a custom argument list with a custom starting point
 
 ```ts
-const args = deserializeArgumentList(['--foo', 'bar', '-baz=qar']);
+const args = deserializeArgumentList(['--foo', 'bar', '-baz=qar'], 0);
 // ^? Record<string, string>
 ```
+
+The starting point otherwise defaults to `2` for compatibility with `process.argv`.
 
 You can then pass that object to whatever validation you desire.
 
