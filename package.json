@@ -1,6 +1,6 @@
 {
   "name": "deez-argv",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "A package for deserializing argument lists",
   "main": "src/dist/commonjs/index.js",
   "module": "src/dist/esm/index.js",
@@ -35,8 +35,8 @@
   "exports": {
     ".": {
       "types": "./types/index.d.ts",
-      "require": "./src/dist/commonjs/index.js",
-      "import": "./src/dist/esm/index.js"
+      "require": "./dist/commonjs/index.js",
+      "import": "./dist/esm/index.js"
     }
   }
 }
