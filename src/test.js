@@ -41,14 +41,19 @@ await $.test('deez-argv', async () => {
       assert.deepStrictEqual(args, {
         foo: 'bar',
         baz: 'qux',
-        plying: 'true',
-        tract: 'true',
+        plying: true,
+        tract: true,
       });
     });
 
     await $.it('should be able to customize start index', () => {
       const args = deserializeArgumentList(['-foo', 'bar', '--baz=qux'], 0);
       assert.deepStrictEqual(args, {foo: 'bar', baz: 'qux'});
+    });
+
+    await $.it('should be able to parse an array via commas', () => {
+      const args = deserializeArgumentList(['-foo', 'bar, baz', '--q=qux'], 0);
+      assert.deepStrictEqual(args, {foo: ['bar', 'baz'], q: 'qux'});
     });
   });
 });
