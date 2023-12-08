@@ -1,6 +1,6 @@
 {
   "name": "deez-argv",
-  "version": "1.0.5",
+  "version": "1.0.6",
   "description": "A package for deserializing argument lists",
   "main": "src/dist/commonjs/index.js",
   "module": "src/dist/esm/index.js",

@@ -45,11 +45,12 @@ const args = argSchema.parse(deserializeArgumentList());
 ```
 
 `-` and `--` denotes an argument that should be parsed.
-If an argument is followed by another argument, it is assumed to be a boolean flag, booleans are strings with the value `true`.
+If an argument is followed by another argument, it is assumed to be a boolean flag.
 Otherwise values can be passed either with a `=` or with a space.
+You can use commas to pass multiple values into an array.
 
 ```bash
-$ node index.js --foo bar -biz --baz=qar --qux
+$ node index.js --foo bar -biz --baz=qar --qux --shows interstellar,bum, pirates
 ```
 
 ```js
@@ -57,9 +58,10 @@ const args = deserializeArgumentList();
 // ^? Record<string, string>
 assert.deepStrictEqual(args, {
   foo: 'bar',
-  biz: 'true',
+  biz: true,
   baz: 'qar',
-  qux: 'true',
+  qux: true,
+  shows: ['interstellar', 'bum', 'pirates'],
 });
 ```
 
