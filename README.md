@@ -13,7 +13,7 @@ $ yarn add deez-argv
 ```
 
 ```bash
-$ pnpm i deez-argv
+$ pnpm add deez-argv
 ```
 
 ```bash
